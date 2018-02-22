@@ -1,0 +1,16 @@
+{
+  "name": "fcoo-data-files",
+  "version": "0.0.1",
+  "homepage": "https://github.com/FCOO/fcoo-data-files",
+  "author": "Niels Holt nho@fcoo.dk",
+  "description": "package.json is only use for building the package. see bower.json for more info",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/FCOO/fcoo-data-files.git"
+  },
+  "dependencies": {
+    "grunt": "^1.0.0",
+    "grunt-fcoo-grunt-plugin": "^3.3.0"
+  },
+  "license": "MIT"
+}
