@@ -1,5 +1,5 @@
 # fcoo-data-files
->
+
 
 
 ## Description
@@ -11,12 +11,12 @@ Methods to read data files from either production or local during development
 
 ## Usage
 
-Data files used in production are stored on FCOO web-server under [https://TODO/]() in different sub-directories
+Data files used in production are stored on FCOO web-server under https://app.fcoo.dk/static/ in different sub-directories
 
 ### Production
 To get the full path to a file, use `window.fcoo.dataFilePath(subDirName, fileName);` 
 
-    var filePath = window.fcoo.dataFilePath("theSubDir", "fileName.json"); //return "https://TOTO/theSubDir/fileName.json"
+    var filePath = window.fcoo.dataFilePath("theSubDir", "fileName.json"); //return "https://app.fcoo.dk/static/theSubDir/fileName.json"
 
 ### Development
 To be able to test new versions while developing a packages using the structure described in [fcoo-web-dev](https://github.com/FCOO/fcoo-web-dev) and shown below a development version of the data file can be named `_fileName` (with a leading `"_"`) and placed under `src/data`

@@ -10,7 +10,7 @@
     fcoo.dataFilePath: function(subDirName, fileName);
 
     if fcoo.LOCAL_DATA == false:
-    fcoo.dataFilePath("theSubDir", "fileName.json") returns "https://TOTO/theSubDir/fileName.json"
+    fcoo.dataFilePath("theSubDir", "fileName.json") returns "https://app.fcoo.dk/static/theSubDir/fileName.json"
 
     if fcoo.LOCAL_DATA == true:
     fcoo.dataFilePath("theSubDir", "fileName.json") returns "/src/data/_fileName.json"
@@ -23,7 +23,7 @@
 	//Create fcoo-namespace
 	window.fcoo = window.fcoo || {};
     var ns = window.fcoo,
-        fcooDataPath = 'https://TODO/';
+        fcooDataPath = 'https://app.fcoo.dk/static/';
 
     ns.LOCAL_DATA = false;
 
@@ -31,7 +31,7 @@
         if (ns.LOCAL_DATA === true)
             return '/src/data/_' + fileName;
         else
-            return fcooDataPath + subDir + '/' + fileName;
+            return fcooDataPath + (subDir ? subDir + '/' : '') + fileName;
     };
 
 }(this, document));
