@@ -7,7 +7,10 @@
 	https://github.com/FCOO
 
     fcoo.LOCAL_DATA: {boolean}
-    fcoo.dataFilePath: function(subDirName, fileName);
+    fcoo.dataFilePath:
+        function(subDir:STRING, fileName:STRING) OR
+        function(pathAndFileName:STRING) OR
+        function(subAndFileName:{subDirName;STRING, fileName:STRING})
 
     if fcoo.LOCAL_DATA == false:
     fcoo.dataFilePath("theSubDir", "fileName.json") returns "https://app.fcoo.dk/static/theSubDir/fileName.json"
@@ -27,7 +30,26 @@
 
     ns.LOCAL_DATA = false;
 
-    ns.dataFilePath = function(subDir, fileName){
+    ns.dataFilePath = function(){
+        // Detect mode
+        var subDir, fileName;
+        if (arguments.length == 2){
+            //(subDir:STRING, fileName:STRING)
+            subDir   = arguments[0];
+            fileName = arguments[1];
+        }
+        else
+        if (arguments.length == 1){
+            if ($.type(arguments[0]) == 'string')
+                //(pathAndFileName:STRING)
+                return arguments[0];
+            else {
+                //(subAndFileName:{subDirName;STRING, fileName:STRING})
+                subDir   = arguments[0].subDir;
+                fileName = arguments[0].fileName;
+            }
+        }
+
         if (ns.LOCAL_DATA === true)
             return '/src/data/_' + fileName;
         else
@@ -35,3 +57,4 @@
     };
 
 }(this, document));
+
