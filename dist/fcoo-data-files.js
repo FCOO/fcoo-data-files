@@ -71,7 +71,7 @@
         if (ns.LOCAL_DATA === true)
             return '/src/data/_' + fileName;
         else
-            return  nsPath.protocol + + '//' +
+            return  nsPath.protocol + '//' +
                     nsPath.host + '/' +
                     (mainDir ? (mainDir === true ? 'dynamic' : mainDir) : 'static') + '/' +
                     (subDir ? subDir + '/' : '') +
