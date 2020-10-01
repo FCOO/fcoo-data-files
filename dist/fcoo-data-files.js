@@ -34,9 +34,9 @@
     ns.LOCAL_DATA = false;
 
 
-    //Set default protocol and domain
-    nsPath.protocol = 'https://';
-    nsPath.domain = 'app.fcoo.dk/';
+    //Set default protocol and host
+    nsPath.protocol = 'https:';
+    nsPath.host = 'app.fcoo.dk';
 
     function dataFileName(){
         // Detect mode
@@ -71,8 +71,8 @@
         if (ns.LOCAL_DATA === true)
             return '/src/data/_' + fileName;
         else
-            return  nsPath.protocol +
-                    nsPath.domain +
+            return  nsPath.protocol + + '//' +
+                    nsPath.host + '/' +
                     (mainDir ? (mainDir === true ? 'dynamic' : mainDir) : 'static') + '/' +
                     (subDir ? subDir + '/' : '') +
                     fileName;

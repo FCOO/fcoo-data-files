@@ -17,8 +17,8 @@ The standard setup is that the application `APPNAME` is in `https://app.fcoo.dk/
 
 This packages provide a namespace `window.fcoo.path` with the following properires and method
 
-	.protocol:STRING 	//default = "https://"
-    .domain:STRING 		//default = "app.fcoo.dk/"
+	.protocol:STRING 	//default = "https:"
+    .host:STRING 		//default = "app.fcoo.dk"
 	
     .dataFileName: 	FUNCTION([mainDir,] subDir, fileName) or
 					FUNCTION({mainDir, subDir, fileName}) or
@@ -70,8 +70,8 @@ setting `fcoo.LOCAL_DATA = true;` must be done in `/demo/index.html` witch ensur
 ## Options and Methods
     fcoo.LOCALDATA = true/false;
 	
-	fcoo.path.protocol 	= "https://";
-    fcoo.path.domain	= "app.fcoo.dk/";
+	fcoo.path.protocol 	= "https:";
+    fcoo.path.host	    = "app.fcoo.dk";
 	
     fcoo.path.dataFileName([mainDir,] subDir, fileName);
     fcoo.path.dataFileName({mainDir, subDir, fileName});
