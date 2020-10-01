@@ -11,16 +11,38 @@ Methods to read data files from either production or local during development
 
 ## Usage
 
-Data files used in production are stored on FCOO web-server under https://app.fcoo.dk/static/ in different sub-directories
+Data files used in production are stored on the web-server where the application is located
+
+The standard setup is that the application `APPNAME` is in `https://app.fcoo.dk/APPNAME` and the static and dynamic data are in sub-directories under `https://app.fcoo.dk/static/` and `https://app.fcoo.dk/dynamic/`
+
+This packages provide a namespace `window.fcoo.path` with the following properires and method
+
+	.protocol:STRING 	//default = "https://"
+    .domain:STRING 		//default = "app.fcoo.dk/"
+	
+    .dataFileName: 	FUNCTION([mainDir,] subDir, fileName) or
+					FUNCTION({mainDir, subDir, fileName}) or
+					FUNCTION(fileName: STRING)
+	where 	
+	mainDir = false or missing => mainDir = "static" 
+	mainDir = true => mainDir = "dynamic" 
+	mainDir = STRING => mainDir unchanged 
+ 
 
 ### Production
-To get the full path to a file, use `window.fcoo.dataFilePath(subDirName, fileName);` 
 
-    var filePath = window.fcoo.dataFilePath("theSubDir", "fileName.json"); //return "https://app.fcoo.dk/static/theSubDir/fileName.json"
-    //OR
-    var filePath = window.fcoo.dataFilePath({subDir: "theSubDir", fileName:"fileName.json"}); //return "https://app.fcoo.dk/static/theSubDir/fileName.json"
-    //OR
-    var filePath = window.fcoo.dataFilePath("normal/path/to/filename.json"); //return "normal/path/to/filename.json"
+	
+To get the full path to a file, use `window.fcoo.path.dataFileNAme([mainDir,] subDirName, fileName);` where
+ 
+
+    var filePath = window.fcoo.path.dataFileName("theSubDir", "fileName.json"); 
+	//filePath = "https://app.fcoo.dk/static/theSubDir/fileName.json"
+    
+    var filePath = window.fcoo.path.dataFileName({mainDir: true, subDir: "theSubDir", fileName:"fileName.json"}); 
+	//filePath = "https://app.fcoo.dk/dynamic/theSubDir/fileName.json"
+    
+    var filePath = window.fcoo.path.dataFileName("/normal/path/to/filename.json"); 
+	//filePath = "/normal/path/to/filename.json"
 
 
 ### Development
@@ -34,7 +56,7 @@ setting `fcoo.LOCAL_DATA = true;` must be done in `/demo/index.html` witch ensur
     windoe.fcoo.LOCAL_DATA = true;
 
     //In the packages source file
-    var filePath = window.fcoo.dataFilePath("theSubDir", "fileName.json"); //return "/src/data/_fileName.json"
+    var filePath = window.path.dataFileName("theSubDir", "fileName.json"); //return "/src/data/_fileName.json"
 
 #### Structure 
     PACKAGE_NAME
@@ -47,8 +69,13 @@ setting `fcoo.LOCAL_DATA = true;` must be done in `/demo/index.html` witch ensur
 
 ## Options and Methods
     fcoo.LOCALDATA = true/false;
-
-    fcoo.dataFilePath(subDirName, fileName);
+	
+	fcoo.path.protocol 	= "https://";
+    fcoo.path.domain	= "app.fcoo.dk/";
+	
+    fcoo.path.dataFileName([mainDir,] subDir, fileName);
+    fcoo.path.dataFileName({mainDir, subDir, fileName});
+    fcoo.path.dataFileName(fileName);
 
 
 
