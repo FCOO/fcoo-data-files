@@ -1,20 +1,15 @@
 {
   "name": "fcoo-data-files",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "homepage": "https://github.com/FCOO/fcoo-data-files",
   "authors": [
     "Niels Holt"
   ],
   "description": "",
-  "main": [
-    "dist/fcoo-data-files.js"
-  ],
+  "main": "dist/fcoo-data-files.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/FCOO/fcoo-data-files.git"
-  },
-  "dependencies": {
-    "jquery": "^3.3.1"
   },
   "devDependencies": {},
   "license": "MIT",
