@@ -36,7 +36,7 @@
 
     //Set default protocol and host
     nsPath.protocol = nsPath.protocol || 'https:';
-    nsPath.host = nsPath.host || 'app.fcoo.dk';
+    nsPath.host     = nsPath.host     || 'app.fcoo.dk';
 
     function dataFileName(){
         // Detect mode

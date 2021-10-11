@@ -68,7 +68,7 @@ setting `fcoo.LOCAL_DATA = true;` must be done in `/demo/index.html` witch ensur
 
 
 ## Options and Methods
-    fcoo.LOCALDATA = true/false;
+    fcoo.LOCAL_DATA = true/false; 
 	
 	fcoo.path.protocol 	= "https:";
     fcoo.path.host	    = "app.fcoo.dk";
