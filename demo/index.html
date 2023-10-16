@@ -8,20 +8,49 @@
 
 	<meta name='copyright' content='FCOO'>
 	<meta name='owner' content='FCOO'>
+    
+    <style>
+        .test {
+            background-image: var(--test-url);
+    </style>
 </head>
 
 <body>
-    See console
+    <script src="bower_components.js"></script>
     <script src="../src/fcoo-data-files.js"></script>
 
+<div class="test"></div>
+    See console
+
 	<script>
+
+        fcoo.path.setStaticDataFileNameAsCssVar('test-url', 'test', 'test.json');
+        fcoo.path.setDataFileNameAsCssVar('the-var-name', true, 'the-sub-dir', 'the-file-name.json');
 
         console.log("fcoo.path.dataFileName(true, 'test', 'test.json') =>", fcoo.path.dataFileName(true, 'test', 'test.json'));
         console.log("fcoo.path.dataFileName('NEW_MAIN', 'test', 'test.json') =>", fcoo.path.dataFileName('NEW_MAIN', 'test', 'test.json'));
         console.log("fcoo.path.dataFileName('test', 'test.json') =>", fcoo.path.dataFileName('test', 'test.json'));
+        console.log("fcoo.path.dataFileName('assets', 'test', 'test.json') =>", fcoo.path.dataFileName('assets', 'test', 'test.json'));
         console.log("fcoo.path.dataFileName('test.json') =>", fcoo.path.dataFileName('test.json'));
 
+        console.log('******** fcoo.path.setPath({host: {"static": "some_other.fcoo.dk"}}); ********');
+        fcoo.path.setPath({host: {"static": "some_other.fcoo.dk"}});
 
+        console.log("fcoo.path.dataFileName(true, 'test', 'test.json') =>", fcoo.path.dataFileName(true, 'test', 'test.json'));
+        console.log("fcoo.path.dataFileName('NEW_MAIN', 'test', 'test.json') =>", fcoo.path.dataFileName('NEW_MAIN', 'test', 'test.json'));
+        console.log("fcoo.path.dataFileName('test', 'test.json') =>", fcoo.path.dataFileName('test', 'test.json'));
+        console.log("fcoo.path.dataFileName('assets', 'test', 'test.json') =>", fcoo.path.dataFileName('assets', 'test', 'test.json'));
+        console.log("fcoo.path.dataFileName('test.json') =>", fcoo.path.dataFileName('test.json'));
+
+        console.log('******** fcoo.path.setPath({relative: {assets: true}}); ********');
+        fcoo.path.setPath({relative: {assets: true}});
+
+        console.log("fcoo.path.dataFileName(true, 'test', 'test.json') =>", fcoo.path.dataFileName(true, 'test', 'test.json'));
+        console.log("fcoo.path.dataFileName('NEW_MAIN', 'test', 'test.json') =>", fcoo.path.dataFileName('NEW_MAIN', 'test', 'test.json'));
+        console.log("fcoo.path.dataFileName('test', 'test.json') =>", fcoo.path.dataFileName('test', 'test.json'));
+        console.log("fcoo.path.dataFileName('assets', 'test', 'test.json') =>", fcoo.path.dataFileName('assets', 'test', 'test.json'));
+        console.log("fcoo.path.dataFileName('test.json') =>", fcoo.path.dataFileName('test.json'));
+ 
     </script>
 </body>
 </html>
